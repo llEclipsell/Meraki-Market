@@ -1,7 +1,7 @@
 Meraki Market 🛒
 Welcome to Meraki Market, a modern and responsive e-commerce platform built with React, designed to showcase a seamless and intuitive online shopping experience. This project demonstrates a robust front-end architecture, efficient state management, and a clean, reusable user interface.
 
-Live At: 
+Live At: https://meraki-market.netlify.app/products
 
 ✨ Key Features :
 1) Responsive E-commerce Platform: A fully functional storefront that looks and works great on any device, from desktops to mobile phones.
