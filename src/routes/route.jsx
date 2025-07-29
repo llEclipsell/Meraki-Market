@@ -1,6 +1,6 @@
 
 import {
-  createHashRouter,
+  createBrowserRouter,
   RouterProvider,
   Navigate
 } from "react-router";
@@ -14,7 +14,7 @@ import AppContainer from '../pages/appContainer'
 import WishlistPage from '../pages/wishlistPage'
 import CartPage from '../pages/cartPage'
 
-const routes = createHashRouter(
+const routes = createBrowserRouter(
     [
         {
             path: "/login",
