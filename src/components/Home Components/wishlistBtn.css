@@ -1,0 +1,16 @@
+
+/* Hover effect */
+.button:hover:not([disabled]) {
+  background-color: white;
+  color: black;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid black;
+}
+
+/* Disabled state */
+.button:disabled,
+.button[data-disabled] {
+  border-color: pink;
+  color: black;
+  background-color: pink;
+}
