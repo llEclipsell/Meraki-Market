@@ -27,6 +27,10 @@ const routes = createBrowserRouter(
                     </AppContainer>,
             children:[
                 {
+                    index: true,
+                    element: <Navigate to="/products" replace />
+                },
+                {
                     path: "/products",  
                     element: <App />,
                     children: [
