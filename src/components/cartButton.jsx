@@ -73,7 +73,7 @@ export default function CartButton(props) {
                     if (storedCart?.find(item => item.id === product.id)) {
                         return (
                             <Flex key={product.id} gap= "md" justify="center" align="center" 
-                                direction="row" wrap="nowrap" mt='md' radius="md">
+                                direction="row" wrap="nowrap" mt='md' radius="md" >
                             {/* We are tying the product id to the buttons so that they inc. and dec. correctly */}
                                 <Button
                                     style={{backgroundColor: "black"}}
@@ -96,8 +96,8 @@ export default function CartButton(props) {
                                 > - </Button>
         
                                 <NumberInput
-                                    hideControls
-                                    style={{border: '2px solid black', width: "200px", borderRadius: '5px' }}
+                                    hideControls    // flexGrow helps us auto adjust the width of the input field
+                                    style={{border: '2px solid black', borderRadius: '5px', flexGrow: 1 }}  
                                     min={0}
                                     value={cartQuantities[product.id] || 1} 
                                     onChange={(val) => setCartQuantities((prev) => ({
