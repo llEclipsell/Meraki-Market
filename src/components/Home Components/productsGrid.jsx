@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 import { Grid, Card, Image, Text, Badge, Group } from '@mantine/core';
 import useFetchProductListing from "../../services/product/useFetchProductListing";

@@ -1,5 +1,4 @@
 
-import { useState, useEffect } from "react";
 import { Grid, Card, Image, Text, Badge, Group, Space, LoadingOverlay } from "@mantine/core";
 import { useNavigate } from "react-router";
 import useFetchProductListing from "../services/product/useFetchProductListing";
@@ -27,7 +26,7 @@ export default function CartPage(){
         return <h1>Error!!</h1>
     }
 
-    // Wishlist's Page:
+    // Cart's Page:
     if (cartState === "null" || cartState.length === 0) {
         return (
             <div style={{ padding: '2rem', textAlign: 'center' }}>
