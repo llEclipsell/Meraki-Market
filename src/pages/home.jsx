@@ -38,9 +38,3 @@ export default function home(){
     </> 
   );
 }
-
-// Left to Do:
-// 1. Cart's Page
-// 2. Wishlist Page
-// 3. Adding Buy Now Button in the product details page
-// 4. Experiment with additional query

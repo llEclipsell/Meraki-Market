@@ -7,7 +7,7 @@ import CartButton from "../components/cartButton";
 import PaymentButton from "../components/singlePaymentButton";
 import BuyAll from "../components/multiPayButton"
 
-export default function WishlistPage(){
+export default function CartPage(){
 
     const navigate = useNavigate();
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
