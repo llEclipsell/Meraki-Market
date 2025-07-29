@@ -11,6 +11,8 @@ export default function WishlistPage(){
 
     const navigate = useNavigate();
     
+    const { loadingState, errorState, cartQuantities, setCartQuantities } = useFetchProductListing();
+
     // Wishlist States:
     const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
     const [wishlistState, setWishlistState] = useState(() => 
@@ -23,16 +25,6 @@ export default function WishlistPage(){
         localStorage.setItem("wishlist", JSON.stringify(filtered));
         setWishlistState(newWishlist);
     }
-    
-    // Cart Quantity States:
-    const [cartQuantities, setCartQuantities] = useState(() =>
-        JSON.parse(localStorage.getItem('cartQuantities')) || {}
-    );
-    useEffect(() => {
-        localStorage.setItem('cartQuantities', JSON.stringify(cartQuantities));
-    }, [cartQuantities]);
-
-    const { loadingState, errorState } = useFetchProductListing();
 
     // Loading / Error Handling:
     if(loadingState) {

@@ -10,17 +10,8 @@ import BuyAll from "../components/multiPayButton"
 export default function CartPage(){
 
     const navigate = useNavigate();
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
     
-    // Cart Quantity States:
-    const [cartQuantities, setCartQuantities] = useState(() =>
-        JSON.parse(localStorage.getItem('cartQuantities')) || {}
-    );
-    useEffect(() => {
-        localStorage.setItem('cartQuantities', JSON.stringify(cartQuantities));
-    }, [cartQuantities]);
-
-    const { loadingState, errorState } = useFetchProductListing();
+    const { loadingState, errorState, cartState, cartQuantities, setCartQuantities } = useFetchProductListing();
 
     // Loading / Error Handling:
     if(loadingState) {
@@ -37,17 +28,17 @@ export default function CartPage(){
     }
 
     // Wishlist's Page:
-    if (cart === "null" || cart.length === 0) {
+    if (cartState === "null" || cartState.length === 0) {
         return (
             <div style={{ padding: '2rem', textAlign: 'center' }}>
-                <h1>No products in your cart</h1>
+                <h1>No products in your cartState</h1>
             </div>
         );
     }
     return(
         <>
             <Grid justify="center" align="center" wrap="nowrap" style={{ padding: '1.5rem'}} >
-                { cart?.map((product) => 
+                { cartState?.map((product) => 
 
                     <Grid.Col key={product.id} span={{ base: 12, md: 6, lg: 3 }}>
 
@@ -84,7 +75,7 @@ export default function CartPage(){
                     </Grid.Col>
                 )}
             </Grid>
-            <BuyAll cart={cart} cartQuantities={cartQuantities} />
+            <BuyAll cart={cartState} cartQuantities={cartQuantities} />
         </>
     )
 }

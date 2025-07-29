@@ -10,6 +10,24 @@ export default function useFetchProductListing() {
     const [loadingState, setLoadingState] = useState(false);
     const [errorState, setErrorState] = useState(null); 
 
+    // Cart States:
+    const [cartState, setCartState] = useState(() =>
+        JSON.parse(localStorage.getItem('cart')) || []
+    );
+    // This ensures that the cartQuantities is pulled from the local storage
+    const [cartQuantities, setCartQuantities] = useState(() =>
+        JSON.parse(localStorage.getItem('cartQuantities')) || {}
+    );
+    // This ensures that local storage is updated based on the,
+    // changed values in cartQuantities after re-rendering(reloading)/mounting
+    useEffect(() => {
+        localStorage.setItem('cartQuantities', JSON.stringify(cartQuantities));
+    }, [cartQuantities]);
+    // whenever quantities change (i.e. you removed an item), re‑read localStorage
+    useEffect(() => {
+        setCartState(JSON.parse(localStorage.getItem('cart')) || []);
+    }, [cartQuantities]);
+
     // We use the useEffect hook to fetch the products from the API when the component mounts:
     useEffect(() => {
         window.scrollTo({
@@ -58,8 +76,9 @@ export default function useFetchProductListing() {
         products, 
         limit, setLimit, 
         activePage, setActivePage, 
-        loadingState, 
-        errorState,
+        loadingState, errorState,
+        cartState, setCartState,
+        cartQuantities, setCartQuantities
     }
 
 }

@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { Grid, Card, Image, Text, Badge, Group } from '@mantine/core';
+import useFetchProductListing from "../../services/product/useFetchProductListing";
 import WishlistButton from './wishlistButton'
 import CartButton from '../cartButton'
 
@@ -13,20 +14,11 @@ export default function productsGrid(props) {
     // Constants:
     const navigate = useNavigate(); 
 
+    const { cartQuantities, setCartQuantities } = useFetchProductListing();
+
     // Wishlist State:
     const [wishlistState, setWishlistState] = useState([]);
     
-    // Cart Quantity States:
-    // This ensures that the cartQuantities is pulled from the local storage
-    const [cartQuantities, setCartQuantities] = useState(() =>
-        JSON.parse(localStorage.getItem('cartQuantities')) || {}
-    );
-    // This ensures that local storage is updated based on the,
-    // changed values in cartQuantities after re-rendering(reloading)/mounting
-    useEffect(() => {
-        localStorage.setItem('cartQuantities', JSON.stringify(cartQuantities));
-    }, [cartQuantities]);
-
     return(
         <>
             {/* So with the help of Mantine's Grid component, 
