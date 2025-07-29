@@ -31,7 +31,7 @@ export default function CartPage(){
     if (cartState === "null" || cartState.length === 0) {
         return (
             <div style={{ padding: '2rem', textAlign: 'center' }}>
-                <h1>No products in your cartState</h1>
+                <h1>No products in your cart</h1>
             </div>
         );
     }
