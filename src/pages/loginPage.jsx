@@ -17,8 +17,8 @@ const LoginPage = () => {
     const form = useForm({
         mode:'uncontrolled',
         initialValues: {
-            email: '',
-            password: ''
+            email: 'test@gmail.com',
+            password: 'test'
         },
     })
 
@@ -59,7 +59,7 @@ const LoginPage = () => {
         } 
         else {
             // If the user is not authenticated, show an error message
-            alert("Invalid credentials");
+            alert("Use test@gmail.com and test as email and password");
         }
     };
 
